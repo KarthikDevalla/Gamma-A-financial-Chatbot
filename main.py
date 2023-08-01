@@ -25,7 +25,7 @@ def currency_stock_news():
         in_curr=data['queryResult']['parameters']['unit-currency']['currency']
         quant=data['queryResult']['parameters']['unit-currency']['amount']
         out_curr=data['queryResult']['parameters']['currency-name']
-        url=f'https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency={in_curr}&to_currency={out_curr}&apikey=W6GSXASKRWVJ0LGO'
+        url=f'https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency={in_curr}&to_currency={out_curr}&apikey=yourkey'
         response=requests.get(url)
         response= response.json()
         con_fact=float(response['Realtime Currency Exchange Rate']['5. Exchange Rate'])
@@ -39,7 +39,7 @@ def currency_stock_news():
         if (ct<'16:00:00') and (ct>'9:30:00'):
             url=f'https://realstonks.p.rapidapi.com/{stock_dictionary[company]}'
             headers = {
-                "X-RapidAPI-Key": "c9eab3f074mshc0ce2704596ff5bp159ca5jsn65649bca4e0e",
+                "X-RapidAPI-Key": "yourkey",
                 "X-RapidAPI-Host": "realstonks.p.rapidapi.com"}
 
             stock_response=requests.get(url,headers=headers)
@@ -66,7 +66,7 @@ def currency_stock_news():
             else:
                 pass
 
-            url=f'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol={stock_dictionary[company]}&apikey=W6GSXASKRWVJ0LGO'
+            url=f'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol={stock_dictionary[company]}&apikey=yourkey'
             stock_response=requests.get(url)
             stock_response= stock_response.json()
             stock_data=stock_response['Time Series (Daily)'][dt]
@@ -85,7 +85,7 @@ def currency_stock_news():
     
     elif data['queryResult']['intent']['displayName'] =='news-fetcher':
         company=data['queryResult']['parameters']['company']
-        url=f'https://newsapi.org/v2/everything?q={company}&from={str(yesterday)}&to={str(today)}&sortBy=popularity&apiKey=30ce921c99cf42dcb765670bf99aa3fc'
+        url=f'https://newsapi.org/v2/everything?q={company}&from={str(yesterday)}&to={str(today)}&sortBy=popularity&apiKey=yourkey'
         article_response=requests.get(url)
         article_response= article_response.json()
         news_article=''
