@@ -17,8 +17,8 @@ This chatbot is a financial assistant powered by Dialogflow, capable of providin
 
 Clone this repository to your local machine:
 
-```
-git clone https://github.com/your-username/financial-chatbot.git
+```shell
+git clone https://github.com/KarthikDevalla/Gamma-A-financial-Chatbot.git
 ```
 
 3. Set up a Dialogflow agent and configure the necessary intents and entities to handle financial queries.
