@@ -35,7 +35,7 @@ git clone https://github.com/KarthikDevalla/Gamma-A-financial-Chatbot.git
 
 3. The chatbot will respond with the requested real-time financial information.
 
-![](bot.mp4)
+![video](bot.mp4)
 
 ## Technologies Used
 
@@ -43,5 +43,3 @@ git clone https://github.com/KarthikDevalla/Gamma-A-financial-Chatbot.git
 - Python: For implementing the chatbot's backend logic and making API requests.
 - Financial APIs: To fetch real-time stock prices, currency exchange rates, and financial news data.
 - Ngrok: For secure tunneling into the local machine.
-
-- 
