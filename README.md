@@ -33,9 +33,7 @@ git clone https://github.com/KarthikDevalla/Gamma-A-financial-Chatbot.git
 
 2. Start a conversation by typing or speaking your financial query.
 
-3. The chatbot will respond with the requested real-time financial information.
-
-![video](bot.mp4)
+3. The chatbot will respond with the requested real-time financial information. For a more detailed usage refer this [video](bot.mp4)
 
 ## Technologies Used
 
