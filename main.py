@@ -1,14 +1,13 @@
 from flask import Flask,request,jsonify
 import requests
 from datetime import date
-from datetime import datetime
+import datetime
 from datetime import timedelta
 import pytz
 
 tz_NY = pytz.timezone('America/New_York') 
-datetime_NY = datetime.now(tz_NY)
+datetime_NY = datetime.datetime.now(tz_NY).time()
 
-ct=str(datetime_NY)[11:19]
 app=Flask(__name__)
 
 today=date.today()
@@ -36,7 +35,7 @@ def currency_stock_news():
     elif data['queryResult']['intent']['displayName'] =='stock-summoner':
         company=data['queryResult']['parameters']['company']
 
-        if (ct<'16:00:00') and (ct>'9:30:00'):
+        if (datetime_NY <= datetime.time(16,0,0)) and (datetime_NY >=datetime.time(9,30,0)):
             url=f'https://realstonks.p.rapidapi.com/{stock_dictionary[company]}'
             headers = {
                 "X-RapidAPI-Key": "yourkey",
@@ -53,6 +52,7 @@ def currency_stock_news():
             Change Point: {change_point}\n
             Change Percentage: {change_percentage}\n
             Total Volume: {total_vol}'''}
+            return jsonify(push)
 
         else:
             date_time=data['queryResult']['parameters']['date-time']
@@ -95,19 +95,6 @@ def currency_stock_news():
             news_article=news_article+f'''{title}\n{url}\n\n'''
         push={'fulfillmentText':news_article}
         return jsonify(push)
-
-
-
-
-
-
-
-
-
-    
-
-
-
 
 if __name__=='__main__':
     app.run(debug=True)
